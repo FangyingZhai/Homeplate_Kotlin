@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Restaurant Information"
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="18sp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+    />
+
+    <TextView
+            android:id="@+id/resname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Please set up restaurant name"
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="18sp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+    />
+
+    <TextView
+            android:id="@+id/tele"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Please set up telephone number"
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="18sp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+    />
+
+    <TextView
+            android:id="@+id/email_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Please set up email address"
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="18sp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+    />
+
+    <TextView
+            android:id="@+id/res_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Please set up restaurant address"
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="18sp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+    />
+
+    <Button
+            android:id="@+id/edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EDIT"
+            android:layout_gravity="center"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"/>
+
+
+
+</LinearLayout>

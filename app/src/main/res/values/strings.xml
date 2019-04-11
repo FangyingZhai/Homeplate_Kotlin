@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Homeplate</string>
+    <string name="sign_in">Sign In</string>
+    <string name="create_account">Create Account</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="account">Account</string>
+    <string name="game">Game</string>
+    <string name="restaurant">Restaurant Name</string>
+    <string name="first">First Name</string>
+    <string name="last">Last Name</string>
+    <string name="create_owner">Create Owner Account</string>
+    <string name="create_user">Create User Account</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="no_connection">No Connection</string>
+
+</resources>
