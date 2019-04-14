@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
                                              android:layout_height="match_parent">
 
     <TextView
@@ -57,4 +59,14 @@
             android:layout_marginLeft="90dp" android:layout_marginStart="90dp" android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="63dp"
             android:layout_marginRight="63dp"/>
+    <Button
+            android:text="Sign Out"
+            android:layout_width="89dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/signOutButton"
+            android:layout_gravity="right"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="15dp"
+            app:layout_constraintStart_toEndOf="@+id/textView" android:layout_marginStart="27dp"
+            android:layout_marginBottom="366dp" app:layout_constraintBottom_toTopOf="@+id/textView6"/>
 </android.support.constraint.ConstraintLayout>

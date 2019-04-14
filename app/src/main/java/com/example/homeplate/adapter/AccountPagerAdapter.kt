@@ -11,9 +11,9 @@ import com.example.homeplate.fragment.Account.SignInFragment
 class AccountPagerAdapter(private val context: Context, fm: FragmentManager): FragmentPagerAdapter(fm) {
     override fun getItem(p0: Int): Fragment {
         return if (p0 == 0) {
-            CreateAccountFragment()
-        } else {
             SignInFragment()
+        } else {
+            CreateAccountFragment()
         }
     }
 
@@ -23,9 +23,9 @@ class AccountPagerAdapter(private val context: Context, fm: FragmentManager): Fr
 
     override fun getPageTitle(position: Int): CharSequence? {
         return if (position == 0) {
-            context.getString(R.string.create_account)
-        } else {
             context.getString(R.string.sign_in)
+        } else {
+            context.getString(R.string.create_account)
         }
     }
 }

@@ -69,6 +69,11 @@
             android:layout_gravity="center"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"/>
 
-
+    <Button
+            android:text="Sign Out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/signOutButton"
+            android:layout_gravity="right"/>
 
 </LinearLayout>
