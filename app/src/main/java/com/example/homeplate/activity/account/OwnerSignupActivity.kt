@@ -1,4 +1,4 @@
-package com.example.homeplate.activity.Account
+package com.example.homeplate.activity.account
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle

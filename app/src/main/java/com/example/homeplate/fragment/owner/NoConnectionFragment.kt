@@ -1,4 +1,4 @@
-package com.example.homeplate.fragment.Owner
+package com.example.homeplate.fragment.owner
 
 import android.os.Bundle
 import android.support.v4.app.Fragment

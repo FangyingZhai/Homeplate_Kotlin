@@ -1,13 +1,10 @@
-package com.example.homeplate.fragment.Owner
+package com.example.homeplate.fragment.owner
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.net.ConnectivityManager
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.content.ContextCompat.getSystemService
 import android.text.Editable
 import android.util.Log
 import android.view.LayoutInflater
@@ -15,7 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.homeplate.R
-import com.example.homeplate.activity.Account.MainActivity
+import com.example.homeplate.activity.account.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_info.*
 

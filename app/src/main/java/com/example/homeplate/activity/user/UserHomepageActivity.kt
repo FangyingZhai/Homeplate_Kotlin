@@ -1,4 +1,4 @@
-package com.example.homeplate.activity.User
+package com.example.homeplate.activity.user
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -6,8 +6,8 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import com.example.homeplate.R
-import com.example.homeplate.fragment.User.RestaurantListFragment
-import com.example.homeplate.fragment.User.UserSettingsFragment
+import com.example.homeplate.fragment.user.RestaurantListFragment
+import com.example.homeplate.fragment.user.UserSettingsFragment
 import kotlinx.android.synthetic.main.activity_user_homepage.*
 
 class UserHomepageActivity : AppCompatActivity() {

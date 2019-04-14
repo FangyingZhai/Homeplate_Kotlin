@@ -1,19 +1,16 @@
-package com.example.homeplate.activity.Account
+package com.example.homeplate.activity.account
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import com.example.homeplate.R
-import com.example.homeplate.activity.Owner.OwnerHomepageActivity
-import com.example.homeplate.activity.User.UserHomepageActivity
+import com.example.homeplate.activity.owner.OwnerHomepageActivity
+import com.example.homeplate.activity.user.UserHomepageActivity
 import com.example.homeplate.adapter.AccountPagerAdapter
-import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_account.*
-
 
 class MainActivity : AppCompatActivity() {
 

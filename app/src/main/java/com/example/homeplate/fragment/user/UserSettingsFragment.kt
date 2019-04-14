@@ -1,4 +1,4 @@
-package com.example.homeplate.fragment.User
+package com.example.homeplate.fragment.user
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -10,7 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.homeplate.R
-import com.example.homeplate.activity.Account.MainActivity
+import com.example.homeplate.activity.account.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_info.*
 

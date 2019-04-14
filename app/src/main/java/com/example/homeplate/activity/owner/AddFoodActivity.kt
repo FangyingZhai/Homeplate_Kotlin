@@ -1,4 +1,4 @@
-package com.example.homeplate.activity.Owner
+package com.example.homeplate.activity.owner
 
 import android.app.Activity
 import android.content.Intent

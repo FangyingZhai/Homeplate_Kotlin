@@ -1,4 +1,4 @@
-package com.example.homeplate.fragment.User
+package com.example.homeplate.fragment.user
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -7,7 +7,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v4.content.ContextCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +14,7 @@ import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.homeplate.R
-import com.example.homeplate.activity.User.MenuActivity
+import com.example.homeplate.activity.user.MenuActivity
 import com.example.homeplate.model.RestaurantItem
 import kotlinx.android.synthetic.main.fragment_restaurant_list.view.*
 

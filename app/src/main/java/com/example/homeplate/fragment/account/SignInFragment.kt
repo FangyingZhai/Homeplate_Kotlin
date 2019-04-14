@@ -1,4 +1,4 @@
-package com.example.homeplate.fragment.Account
+package com.example.homeplate.fragment.account
 
 import android.annotation.SuppressLint
 import com.google.firebase.auth.FirebaseAuth
@@ -11,8 +11,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.homeplate.R
-import com.example.homeplate.activity.Owner.OwnerHomepageActivity
-import com.example.homeplate.activity.User.UserHomepageActivity
+import com.example.homeplate.activity.owner.OwnerHomepageActivity
+import com.example.homeplate.activity.user.UserHomepageActivity
 import kotlinx.android.synthetic.main.fragment_sign_in.*
 
 @SuppressLint("ValidFragment")

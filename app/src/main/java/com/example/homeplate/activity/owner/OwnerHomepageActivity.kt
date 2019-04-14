@@ -1,4 +1,4 @@
-package com.example.homeplate.activity.Owner
+package com.example.homeplate.activity.owner
 
 import android.content.Context
 import android.net.ConnectivityManager
@@ -7,8 +7,8 @@ import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.util.Log
 import com.example.homeplate.R
-import com.example.homeplate.fragment.Owner.InfoFragment
-import com.example.homeplate.fragment.Owner.NoConnectionFragment
+import com.example.homeplate.fragment.owner.InfoFragment
+import com.example.homeplate.fragment.owner.NoConnectionFragment
 import kotlinx.android.synthetic.main.activity_owner_homepage.*
 
 class OwnerHomepageActivity : AppCompatActivity() {

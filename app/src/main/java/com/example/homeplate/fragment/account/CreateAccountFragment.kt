@@ -1,4 +1,4 @@
-package com.example.homeplate.fragment.Account
+package com.example.homeplate.fragment.account
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -8,8 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.homeplate.R
-import com.example.homeplate.activity.Account.OwnerSignupActivity
-import com.example.homeplate.activity.Account.UserSignupActivity
+import com.example.homeplate.activity.account.OwnerSignupActivity
+import com.example.homeplate.activity.account.UserSignupActivity
 import kotlinx.android.synthetic.main.fragment_create_account.*
 
 @SuppressLint("ValidFragment")

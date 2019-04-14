@@ -1,4 +1,4 @@
-package com.example.homeplate.activity.User
+package com.example.homeplate.activity.user
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -6,9 +6,8 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.support.v7.app.AppCompatActivity
 import com.example.homeplate.R
-import com.example.homeplate.fragment.User.OrderFragment
-import com.example.homeplate.fragment.User.RestaurantDetailFragment
-import kotlinx.android.synthetic.main.activity_main.*
+import com.example.homeplate.fragment.user.OrderFragment
+import com.example.homeplate.fragment.user.RestaurantDetailFragment
 import kotlinx.android.synthetic.main.activity_menu.*
 
 class MenuActivity : AppCompatActivity() {
