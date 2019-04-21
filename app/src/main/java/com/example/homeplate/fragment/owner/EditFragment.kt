@@ -12,7 +12,6 @@ import com.example.homeplate.R
 import kotlinx.android.synthetic.main.fragment_edit.*
 import java.lang.Exception
 
-
 @SuppressLint("ValidFragment")
 class EditFragment : Fragment() {
 

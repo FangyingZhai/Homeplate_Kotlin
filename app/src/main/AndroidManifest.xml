@@ -3,12 +3,15 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="com.example.homeplate">
 
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-feature android:name="android.hardware.camera"/>
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
     <uses-feature android:name="android.hardware.location.gps"/>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
             android:allowBackup="true"
@@ -20,13 +23,13 @@
             tools:ignore="AllowBackup,GoogleAppIndexingWarning">
 
         <provider
-                android:authorities="com.example.homeplate"
                 android:name="android.support.v4.content.FileProvider"
+                android:authorities="com.example.homeplate"
                 android:exported="false"
                 android:grantUriPermissions="true">
             <meta-data
                     android:name="android.support.FILE_PROVIDER_PATHS"
-                    android:resource="@xml/file_paths" />
+                    android:resource="@xml/file_paths"/>
         </provider>
 
         <activity android:name=".activity.owner.AddFoodActivity">

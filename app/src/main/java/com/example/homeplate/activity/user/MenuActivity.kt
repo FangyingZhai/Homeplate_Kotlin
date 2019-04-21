@@ -11,11 +11,14 @@ import com.example.homeplate.fragment.user.RestaurantDetailFragment
 import kotlinx.android.synthetic.main.activity_menu.*
 
 class MenuActivity : AppCompatActivity() {
+    private lateinit var restaurantEmail: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //intent(passed restaurant email)
+        restaurantEmail = intent.extras.getString("RESTAURANT_EMAIL")!!
+        //ui
         setContentView(R.layout.activity_menu)
-
         val fragmentAdapter = MyPagerAdapter(supportFragmentManager)
         viewpager_main2.adapter = fragmentAdapter
         tabs_main2.setupWithViewPager(viewpager_main2)
@@ -28,7 +31,7 @@ class MenuActivity : AppCompatActivity() {
         override fun getItem(position: Int):Fragment  {
             return when (position) {
                 0 -> {
-                    RestaurantDetailFragment( this@MenuActivity)
+                    RestaurantDetailFragment( this@MenuActivity, restaurantEmail)
                 }
                 else -> OrderFragment()
             }

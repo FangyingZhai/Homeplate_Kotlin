@@ -49,19 +49,12 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+        //No account logged in, loads account sign-in/sign-up UI
         else {
-            loadUI()
+            setContentView(R.layout.activity_account)
+            val adapter = AccountPagerAdapter(this, supportFragmentManager)
+            viewpager.adapter = adapter
+            tabs.setupWithViewPager(viewpager)
         }
-    }
-
-    override fun onStart() {
-        super.onStart()
-    }
-
-    private fun loadUI() {
-        setContentView(R.layout.activity_account)
-        val adapter = AccountPagerAdapter(this, supportFragmentManager)
-        viewpager.adapter = adapter
-        tabs.setupWithViewPager(viewpager)
     }
 }

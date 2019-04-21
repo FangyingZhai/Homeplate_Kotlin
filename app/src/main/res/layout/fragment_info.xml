@@ -1,65 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<android.support.constraint.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp">
 
     <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
             android:text="Restaurant Information"
             style="@style/TextAppearance.AppCompat.Body2"
             android:textSize="18sp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-    />
+            android:id="@+id/textView13" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="30dp" android:layout_marginTop="17dp" app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
             android:id="@+id/resname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
             android:text="Please set up restaurant name"
             style="@style/TextAppearance.AppCompat.Body2"
             android:textSize="18sp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-    />
+            app:layout_constraintTop_toBottomOf="@+id/textView13"
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
             android:id="@+id/tele"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
             android:text="Please set up telephone number"
             style="@style/TextAppearance.AppCompat.Body2"
             android:textSize="18sp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-    />
+            app:layout_constraintTop_toBottomOf="@+id/resname"
+            android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.416"/>
 
     <TextView
             android:id="@+id/email_address"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
             android:text="Please set up email address"
             style="@style/TextAppearance.AppCompat.Body2"
             android:textSize="18sp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-    />
+            app:layout_constraintTop_toBottomOf="@+id/tele" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
             android:id="@+id/res_address"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
             android:text="Please set up restaurant address"
             style="@style/TextAppearance.AppCompat.Body2"
             android:textSize="18sp"
             android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-    />
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/email_address"/>
 
     <Button
             android:id="@+id/edit"
@@ -67,13 +69,37 @@
             android:layout_height="wrap_content"
             android:text="EDIT"
             android:layout_gravity="center"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/res_address" android:layout_marginTop="8dp"/>
 
     <Button
             android:text="Sign Out"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/signOutButton"
-            android:layout_gravity="right"/>
+            android:layout_gravity="right" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/res_address" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
-</LinearLayout>
+    <Button
+            android:text="Add Menu Item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/addFoodButton"
+            android:layout_gravity="right" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/res_address" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/signOutButton" app:layout_constraintStart_toEndOf="@+id/edit"
+            android:layout_marginStart="8dp"/>
+
+
+    <GridView
+            android:id="@+id/GV"
+            android:numColumns="2"
+            android:layout_width="match_parent"
+            android:layout_height="277dp" android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/addFoodButton" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"/>
+
+
+</android.support.constraint.ConstraintLayout>

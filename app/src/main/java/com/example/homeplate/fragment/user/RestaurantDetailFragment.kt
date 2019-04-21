@@ -1,40 +1,45 @@
 package com.example.homeplate.fragment.user
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.ImageView
-import android.widget.TextView
 import com.example.homeplate.R
+import com.example.homeplate.adapter.MenuItemAdapter
 import com.example.homeplate.model.DishItem
-import kotlinx.android.synthetic.main.fragment_menu.view.*
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.fragment_menu.*
 
 
 @SuppressLint("ValidFragment")
-class RestaurantDetailFragment(context: Context): Fragment(){
+class RestaurantDetailFragment(context: Context, resEmail: String): Fragment(){
+    private lateinit var auth : FirebaseAuth
+    private lateinit var db : FirebaseFirestore
+    private lateinit var email : String
+    private val restaurantEmail  = resEmail
 
     private var listener: OnFragmentInteractionListener? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        //firebase stuff
+        auth = FirebaseAuth.getInstance()
+        db = FirebaseFirestore.getInstance()
+        email = auth.currentUser!!.email!!
+        //restaurantEmail = intent
+        val view: View =  inflater.inflate(R.layout.fragment_menu, container, false)
+        //view.GV2.adapter =  Adapter_RestaurantItem(this.requireActivity(), R.layout.fragment_menu_item, data)
+        return view
     }
 
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view: View =  inflater.inflate(R.layout.fragment_menu, container, false)
-
-
-        view.GV2.adapter =  Adapter_RestaurantItem(this.requireActivity(), R.layout.fragment_menu_item, data)
-
-        return view
+    override fun onStart() {
+        super.onStart()
+        getMenu()
     }
 
 
@@ -58,72 +63,21 @@ class RestaurantDetailFragment(context: Context): Fragment(){
         fun onFragmentInteraction(uri: Uri)
     }
 
-
-    val data : ArrayList<DishItem>
-        get()
-        {
-            val item_list: ArrayList<DishItem> = ArrayList<DishItem>()
-
-            item_list.add(DishItem(R.drawable.dish1, "DISH 1"))
-            item_list.add(DishItem(R.drawable.dish2, "DISH 2"))
-            item_list.add(DishItem(R.drawable.dish3, "DISH 3"))
-            item_list.add(DishItem(R.drawable.dish4, "DISH 4"))
-            item_list.add(DishItem(R.drawable.dish5, "DISH 5"))
-            item_list.add(DishItem(R.drawable.dish6, "DISH 6"))
-            item_list.add(DishItem(R.drawable.dish1, "DISH 1"))
-            item_list.add(DishItem(R.drawable.dish2, "DISH 2"))
-            item_list.add(DishItem(R.drawable.dish3, "DISH 3"))
-            item_list.add(DishItem(R.drawable.dish4, "DISH 4"))
-            item_list.add(DishItem(R.drawable.dish5, "DISH 5"))
-            item_list.add(DishItem(R.drawable.dish6, "DISH 6"))
-
-            return item_list
-        }
-
-
-
-
-
-    inner class Adapter_RestaurantItem (private val getContext: Context, private val GridItemId : Int, private val Grid_item : ArrayList<DishItem>)
-        : ArrayAdapter<DishItem>(getContext, GridItemId, Grid_item){
-
-        override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-//        return super.getView(position, convertView, parent)
-
-            var row = convertView
-            val Holder : ViewHolder
-
-            if (row == null){
-                val inflater = (getContext as Activity).layoutInflater
-
-                row = inflater!!.inflate(GridItemId, parent, false)
-
-                Holder = ViewHolder()
-                Holder.img = row!!.findViewById(R.id.img2) as ImageView
-                Holder.txt = row!!.findViewById(R.id.txt2) as TextView
-
-                row.setTag(Holder)
-            }else{
-                Holder = row.getTag() as ViewHolder
-
+    private fun getMenu() {
+        var menuList = ArrayList<DishItem>()
+        db.collection("owners").document(restaurantEmail).collection("menu")
+            .get().addOnCompleteListener{ task ->
+                if (task.isSuccessful) {
+                    for (document in task.result!!) {
+                        val dish = document.toObject(DishItem::class.java)
+                        menuList.add(dish)
+                        Log.d("DEBUG", "menu list: "+dish.name)
+                    }
+                }
+                else {
+                    Log.d("DEBUG", "COULDN'T GET MENU LIST")
+                }
+                GV2.adapter =  MenuItemAdapter(context!!, menuList, restaurantEmail, "user")
             }
-
-            val item = Grid_item[position]
-            Holder.img!!.setImageResource(item.image)
-            Holder.txt!!.setText(item.name)
-
-
-
-            return row
-
-
-
-        }
-
-        inner class ViewHolder{
-            internal var img : ImageView? = null
-            internal var txt : TextView? = null
-
-        }
     }
 }

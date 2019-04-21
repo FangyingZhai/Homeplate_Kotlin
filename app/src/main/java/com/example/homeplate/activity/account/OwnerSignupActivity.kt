@@ -33,6 +33,7 @@ class OwnerSignupActivity : AppCompatActivity() {
                             // add account info to firestore
                             val db = FirebaseFirestore.getInstance()
                             var user = HashMap<String, Any>()
+                            user.put("email", email)
                             user.put("restaurant name", restaurant)
                             db.collection("owners").document(email).set(user)
                             // Account creation success
