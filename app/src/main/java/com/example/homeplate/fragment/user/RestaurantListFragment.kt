@@ -1,9 +1,7 @@
 package com.example.homeplate.fragment.user
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Context
-import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -11,22 +9,16 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.ImageView
-import android.widget.TextView
 import com.example.homeplate.R
-import com.example.homeplate.activity.user.MenuActivity
-import com.example.homeplate.adapter.MenuItemAdapter
 import com.example.homeplate.adapter.RestaurantItemAdapter
-import com.example.homeplate.model.DishItem
 import com.example.homeplate.model.RestaurantItem
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.fragment_info.*
-import kotlinx.android.synthetic.main.fragment_restaurant_list.view.*
+import kotlinx.android.synthetic.main.fragment_restaurant_list.*
 
 @SuppressLint("ValidFragment")
 class RestaurantListFragment(context: Context): Fragment() {
+    private var parentContext = context
     private lateinit var auth : FirebaseAuth
     private lateinit var db : FirebaseFirestore
     private lateinit var email : String
@@ -80,7 +72,7 @@ class RestaurantListFragment(context: Context): Fragment() {
                 else {
                     Log.d("DEBUG", "COULDN'T GET RESTAURANT LIST")
                 }
-                GV.adapter =  RestaurantItemAdapter(context!!, restaurantList)
+                GV3.adapter =  RestaurantItemAdapter(context!!, restaurantList)
             }
     }
 

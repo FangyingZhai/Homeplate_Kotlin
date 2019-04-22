@@ -42,11 +42,11 @@ class RestaurantItemAdapter (context: Context, restaurant_List: ArrayList<Restau
         if (row == null) {
             val inflater = (context as Activity).layoutInflater
 
-            row = inflater.inflate(R.layout.fragment_menu_item, parent, false)
+            row = inflater.inflate(R.layout.model_restaurant_item, parent, false)
 
             Holder = ViewHolder()
-            Holder.img = row.findViewById(R.id.img2) as ImageView
-            Holder.txt = row.findViewById(R.id.txt2) as TextView
+            Holder.img = row.findViewById(R.id.img) as ImageView
+            Holder.txt = row.findViewById(R.id.txt) as TextView
 
             row.setTag(Holder)
         } else {
@@ -62,7 +62,7 @@ class RestaurantItemAdapter (context: Context, restaurant_List: ArrayList<Restau
             intent.putExtra("RESTAURANT_EMAIL", item.email)
             context.startActivity(intent)
         }
-        return row!!
+        return row
     }
 
 

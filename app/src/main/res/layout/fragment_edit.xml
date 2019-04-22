@@ -6,20 +6,35 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-    <TextView
-            android:layout_width="wrap_content"
+    <LinearLayout
             android:layout_height="wrap_content"
-            android:text="Restaurant Information"
-            style="@style/TextAppearance.AppCompat.Body2"
-            android:textSize="18sp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-    />
+            android:layout_width="fill_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Restaurant Information"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal"
+                style="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="18sp"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+        />
+
+    </LinearLayout>
 
     <EditText
             android:id="@+id/restaurant_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
             android:hint="Name of the restaurant"
             android:inputType="text"/>
 
@@ -27,6 +42,9 @@
             android:id="@+id/telephone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
             android:hint="Telephone number"
             android:inputType="phone"/>
 
@@ -34,6 +52,9 @@
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
             android:hint="Email Address"
             android:inputType="textEmailAddress"/>
 
@@ -41,6 +62,9 @@
             android:id="@+id/address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
             android:hint="Location of the restaurant"
             android:inputType="textPostalAddress"/>
 
@@ -48,6 +72,9 @@
             android:id="@+id/submit_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
             android:text="Submit"
             android:layout_gravity="center"
     />

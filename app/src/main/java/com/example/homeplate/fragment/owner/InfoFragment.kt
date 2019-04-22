@@ -25,6 +25,7 @@ import com.example.homeplate.model.DishItem
 import com.example.homeplate.model.RestaurantItem
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.fragment_edit.*
 import kotlinx.android.synthetic.main.fragment_info.*
 
 @SuppressLint("ValidFragment")
@@ -42,9 +43,9 @@ class InfoFragment(context: Context) : Fragment() , EditFragment.OnFragmentInter
         return inflater.inflate(R.layout.fragment_info, container, false)
     }
 
-
     override fun onStart() {
         super.onStart()
+        //buttons
         edit.setOnClickListener {
             val fm = activity!!.supportFragmentManager
             fm.beginTransaction().replace(R.id.frag_placeholder, EditFragment()).addToBackStack("null").commit()
@@ -57,11 +58,15 @@ class InfoFragment(context: Context) : Fragment() , EditFragment.OnFragmentInter
             startActivity(intent)
             activity!!.finish()
         }
-        addFoodButton.setOnClickListener {
-            val intent = Intent(parentContext, AddFoodActivity::class.java)
-            startActivity(intent)
+        //restaurant info
+        db.collection("owners").document(email).get().addOnCompleteListener { task ->
+            val myRestaurant = task.result!!.toObject(RestaurantItem::class.java)!!
+            resname.text = "Name: " + myRestaurant.name
+            tele.text = "Phone: "+myRestaurant.phone
+            email_address.text = "Email address: "+myRestaurant.email
+            res_address.text = "Address: "+myRestaurant.address
         }
-        getMenu()
+
     }
 
     override fun onFragmentInteraction(restaurant_name: Editable, telephone:Editable, email:Editable, address: Editable) {
@@ -69,23 +74,5 @@ class InfoFragment(context: Context) : Fragment() , EditFragment.OnFragmentInter
         tele.text = telephone;
         email_address.text = email;
         res_address.text = address;
-    }
-
-    private fun getMenu() {
-        val menuList = ArrayList<DishItem>()
-        db.collection("owners").document(email).collection("menu")
-            .get().addOnCompleteListener{ task ->
-                if (task.isSuccessful) {
-                    for (document in task.result!!) {
-                        val dish = document.toObject(DishItem::class.java)
-                        menuList.add(dish)
-                        Log.d("DEBUG", "menu list: "+dish.name)
-                    }
-                }
-                else {
-                    Log.d("DEBUG", "COULDN'T GET MENU LIST")
-                }
-                GV.adapter =  MenuItemAdapter(parentContext, menuList, email, "owner")
-            }
     }
 }

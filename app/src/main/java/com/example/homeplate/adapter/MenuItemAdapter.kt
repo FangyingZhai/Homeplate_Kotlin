@@ -48,11 +48,12 @@ class MenuItemAdapter (context: Context, dish_List: ArrayList<DishItem>,
         if (row == null) {
             val inflater = (context as Activity).layoutInflater
 
-            row = inflater.inflate(R.layout.fragment_menu_item, parent, false)
+            row = inflater.inflate(R.layout.model_dish_item, parent, false)
 
             Holder = ViewHolder()
-            Holder.img = row.findViewById(R.id.img2) as ImageView
-            Holder.txt = row.findViewById(R.id.txt2) as TextView
+            Holder.img = row.findViewById(R.id.img) as ImageView
+            Holder.txt = row.findViewById(R.id.txt) as TextView
+            Holder.txt2 = row.findViewById(R.id.txt2) as TextView
 
             row.setTag(Holder)
         } else {
@@ -62,6 +63,7 @@ class MenuItemAdapter (context: Context, dish_List: ArrayList<DishItem>,
         val item = dish_List[position]
         getImage(item)
         Holder.txt!!.setText(item.name)
+        Holder.txt2!!.setText("Price: $"+item.price)
         Holder.img!!.setOnClickListener {
             //owner account, delete menu items
             if (account == "owner") {
@@ -69,7 +71,7 @@ class MenuItemAdapter (context: Context, dish_List: ArrayList<DishItem>,
                 val alertDialog = AlertDialog.Builder(context)
                 alertDialog.setTitle("Confirm")
                 alertDialog.setMessage("Are you sure you want to delete ${item.name}?")
-                alertDialog.setPositiveButton("OK") { dialog, which ->
+                alertDialog.setPositiveButton("OK") { _, _ ->
                     val storageRef = FirebaseStorage.getInstance().reference
                     storageRef.child("/photos/"+email+"/"+item.name).delete()
                     val db = FirebaseFirestore.getInstance()
@@ -78,12 +80,20 @@ class MenuItemAdapter (context: Context, dish_List: ArrayList<DishItem>,
                     Toast.makeText(context, "${item.name} deleted.",
                         Toast.LENGTH_SHORT).show()
                 }
-                alertDialog.setNegativeButton("CANCEL") { dialog, which -> }
+                alertDialog.setNegativeButton("CANCEL") { _, _ -> }
                 alertDialog.show()
             }
             //user account
             else {
+                val alertDialog = AlertDialog.Builder(context)
+                alertDialog.setTitle("Confirm")
+                alertDialog.setMessage("Add ${item.name} to order?")
+                alertDialog.setPositiveButton("OK") { _, _ ->
 
+                    Toast.makeText(context, "${item.name} added to order.", Toast.LENGTH_SHORT).show()
+                }
+                alertDialog.setNegativeButton("CANCEL") { _, _ -> }
+                alertDialog.show()
             }
 
         }
@@ -104,5 +114,6 @@ class MenuItemAdapter (context: Context, dish_List: ArrayList<DishItem>,
     inner class ViewHolder{
         var img : ImageView? = null
         var txt : TextView? = null
+        var txt2 : TextView? = null
     }
 }

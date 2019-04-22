@@ -24,6 +24,8 @@ class OwnerSignupActivity : AppCompatActivity() {
             val email = email.text.toString()
             val password = password.text.toString()
             val restaurant = restaurant.text.toString()
+            val address = address.text.toString()
+            val phone = phone.text.toString()
 
             if (email != "" && password != "" && restaurant != "") {
 
@@ -34,7 +36,9 @@ class OwnerSignupActivity : AppCompatActivity() {
                             val db = FirebaseFirestore.getInstance()
                             var user = HashMap<String, Any>()
                             user.put("email", email)
-                            user.put("restaurant name", restaurant)
+                            user.put("name", restaurant)
+                            user.put("address", address)
+                            user.put("phone", phone)
                             db.collection("owners").document(email).set(user)
                             // Account creation success
                             Toast.makeText(this, "Account made.", Toast.LENGTH_SHORT).show()

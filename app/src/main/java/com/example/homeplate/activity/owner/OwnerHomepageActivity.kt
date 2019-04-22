@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.util.Log
 import com.example.homeplate.R
+import com.example.homeplate.fragment.owner.DashboardFragment
 import com.example.homeplate.fragment.owner.InfoFragment
 import com.example.homeplate.fragment.owner.NoConnectionFragment
 import kotlinx.android.synthetic.main.activity_owner_homepage.*
@@ -49,6 +50,12 @@ class OwnerHomepageActivity : AppCompatActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_dashboard -> {
+                if (this.isNetworkConnected) {
+                    val fm = supportFragmentManager
+                    val ft = fm.beginTransaction()
+                    ft.replace(R.id.frag_placeholder, DashboardFragment(this@OwnerHomepageActivity))
+                    ft.commit()
+                }
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_notifications -> {

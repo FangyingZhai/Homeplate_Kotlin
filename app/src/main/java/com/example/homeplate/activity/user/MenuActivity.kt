@@ -8,8 +8,10 @@ import android.support.v7.app.AppCompatActivity
 import com.example.homeplate.R
 import com.example.homeplate.fragment.user.OrderFragment
 import com.example.homeplate.fragment.user.RestaurantDetailFragment
+import com.example.homeplate.model.DishItem
 import kotlinx.android.synthetic.main.activity_menu.*
 
+@Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class MenuActivity : AppCompatActivity() {
     private lateinit var restaurantEmail: String
 
@@ -30,10 +32,9 @@ class MenuActivity : AppCompatActivity() {
         //        不同的position对应不同的tab
         override fun getItem(position: Int):Fragment  {
             return when (position) {
-                0 -> {
-                    RestaurantDetailFragment( this@MenuActivity, restaurantEmail)
-                }
-                else -> OrderFragment()
+                0 -> RestaurantDetailFragment( this@MenuActivity, restaurantEmail)
+                else -> OrderFragment(this@MenuActivity, restaurantEmail)
+                //else -> NavigationFragment()
             }
         }
 
@@ -46,9 +47,8 @@ class MenuActivity : AppCompatActivity() {
         override fun getPageTitle(position: Int): CharSequence {
             return when (position) {
                 0 -> "Dishes"
-                else -> {
-                    return "Orders"
-                }
+                else -> "Orders"
+                //else -> "Navigation"
             }
         }
     }
