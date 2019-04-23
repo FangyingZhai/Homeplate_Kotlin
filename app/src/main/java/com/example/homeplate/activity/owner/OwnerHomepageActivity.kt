@@ -1,5 +1,6 @@
 package com.example.homeplate.activity.owner
 
+import android.app.Notification
 import android.content.Context
 import android.net.ConnectivityManager
 import android.support.v7.app.AppCompatActivity
@@ -10,6 +11,7 @@ import com.example.homeplate.R
 import com.example.homeplate.fragment.owner.DashboardFragment
 import com.example.homeplate.fragment.owner.InfoFragment
 import com.example.homeplate.fragment.owner.NoConnectionFragment
+import com.example.homeplate.fragment.owner.NotificationsFragment
 import kotlinx.android.synthetic.main.activity_owner_homepage.*
 
 class OwnerHomepageActivity : AppCompatActivity() {
@@ -59,6 +61,12 @@ class OwnerHomepageActivity : AppCompatActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_notifications -> {
+                if (this.isNetworkConnected) {
+                    val fm = supportFragmentManager
+                    val ft = fm.beginTransaction()
+                    ft.replace(R.id.frag_placeholder, NotificationsFragment(this@OwnerHomepageActivity))
+                    ft.commit()
+                }
                 return@OnNavigationItemSelectedListener true
             }
         }

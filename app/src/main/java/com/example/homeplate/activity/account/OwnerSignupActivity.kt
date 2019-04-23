@@ -21,7 +21,7 @@ class OwnerSignupActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         create_account.setOnClickListener {
-            val email = email.text.toString()
+            val email = email2.text.toString()
             val password = password.text.toString()
             val restaurant = restaurant.text.toString()
             val address = address.text.toString()

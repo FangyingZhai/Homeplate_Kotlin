@@ -18,13 +18,15 @@
                 android:text="Restaurant Information"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="40dp"
                 android:gravity="center_horizontal"
                 style="@style/TextAppearance.AppCompat.Body2"
-                android:textSize="18sp"
+                android:textSize="24sp"
                 android:layout_marginStart="15dp"
                 android:layout_marginLeft="15dp"
-        />
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" android:lineSpacingExtra="10sp"
+                android:textColor="@color/colorPrimary"/>
 
     </LinearLayout>
 
@@ -49,7 +51,7 @@
             android:inputType="phone"/>
 
     <EditText
-            android:id="@+id/email"
+            android:id="@+id/email2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
@@ -74,9 +76,10 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="100dp"
             android:text="Submit"
             android:layout_gravity="center"
-    />
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:backgroundTint="@color/colorPrimary"/>
 
 </LinearLayout>

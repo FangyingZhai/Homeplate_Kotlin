@@ -13,10 +13,13 @@ import android.widget.Toast
 import com.example.homeplate.R
 import com.example.homeplate.model.DishItem
 import com.example.homeplate.utils.GlideApp
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 
+private lateinit var auth : FirebaseAuth
+private lateinit var db : FirebaseFirestore
 private lateinit var photoRef: StorageReference
 private lateinit var email: String
 private lateinit var Holder: MenuItemAdapter.ViewHolder
@@ -28,6 +31,7 @@ class MenuItemAdapter (context: Context, dish_List: ArrayList<DishItem>,
     val dish_List = dish_List
     val resEmail = resEmail
     val account = account
+
 
     override fun getCount(): Int {
         return dish_List.size
@@ -41,8 +45,10 @@ class MenuItemAdapter (context: Context, dish_List: ArrayList<DishItem>,
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        //set restaurant email
-        email = resEmail
+        //firebase stuff
+        auth = FirebaseAuth.getInstance()
+        db = FirebaseFirestore.getInstance()
+        email = auth.currentUser!!.email!!
         //ui
         var row = convertView
         if (row == null) {
@@ -73,9 +79,9 @@ class MenuItemAdapter (context: Context, dish_List: ArrayList<DishItem>,
                 alertDialog.setMessage("Are you sure you want to delete ${item.name}?")
                 alertDialog.setPositiveButton("OK") { _, _ ->
                     val storageRef = FirebaseStorage.getInstance().reference
-                    storageRef.child("/photos/"+email+"/"+item.name).delete()
+                    storageRef.child("/photos/"+resEmail+"/"+item.name).delete()
                     val db = FirebaseFirestore.getInstance()
-                    db.collection("owners").document(email).collection("menu")
+                    db.collection("owners").document(resEmail).collection("menu")
                         .document(item.name).delete()
                     Toast.makeText(context, "${item.name} deleted.",
                         Toast.LENGTH_SHORT).show()
@@ -89,7 +95,7 @@ class MenuItemAdapter (context: Context, dish_List: ArrayList<DishItem>,
                 alertDialog.setTitle("Confirm")
                 alertDialog.setMessage("Add ${item.name} to order?")
                 alertDialog.setPositiveButton("OK") { _, _ ->
-
+                    val orderRef = db.collection("owners").document(resEmail).collection("orders").document(email).collection("orders")
                     Toast.makeText(context, "${item.name} added to order.", Toast.LENGTH_SHORT).show()
                 }
                 alertDialog.setNegativeButton("CANCEL") { _, _ -> }
@@ -103,7 +109,7 @@ class MenuItemAdapter (context: Context, dish_List: ArrayList<DishItem>,
 
     private fun getImage(item: DishItem) {
         val storageRef = FirebaseStorage.getInstance().reference
-        photoRef = storageRef.child("/photos/"+email+"/"+item.name)
+        photoRef = storageRef.child("/photos/"+resEmail+"/"+item.name)
         GlideApp.with(context).load(photoRef).into(Holder.img!!)
     }
 

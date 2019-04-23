@@ -15,6 +15,10 @@ import kotlinx.android.synthetic.main.activity_menu.*
 class MenuActivity : AppCompatActivity() {
     private lateinit var restaurantEmail: String
 
+    object order {
+        val list = ArrayList<DishItem>()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //intent(passed restaurant email)
@@ -26,16 +30,21 @@ class MenuActivity : AppCompatActivity() {
         tabs_main2.setupWithViewPager(viewpager_main2)
     }
 
-
     inner class MyPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
-
         //        不同的position对应不同的tab
         override fun getItem(position: Int):Fragment  {
-            return when (position) {
-                0 -> RestaurantDetailFragment( this@MenuActivity, restaurantEmail)
-                else -> OrderFragment(this@MenuActivity, restaurantEmail)
+            val frag : Fragment
+            when (position) {
+                0 -> {
+                    frag = RestaurantDetailFragment( this@MenuActivity, restaurantEmail)
+                }
+                else -> {
+
+                    frag = OrderFragment(this@MenuActivity, restaurantEmail)
+                }
                 //else -> NavigationFragment()
             }
+            return frag
         }
 
         //      总共有多少tab

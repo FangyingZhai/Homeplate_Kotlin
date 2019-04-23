@@ -74,6 +74,7 @@ class NavigationActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap?) {
         this.googleMap = googleMap
+        Log.d("DEBUG", "MAP LOADED")
         if(ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED &&
             ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             createLocationRequest()
@@ -136,16 +137,16 @@ class NavigationActivity : AppCompatActivity(), OnMapReadyCallback {
         locationRequest.numUpdates = 5
         locationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
 
-        var builder = LocationSettingsRequest.Builder()
+        val builder = LocationSettingsRequest.Builder()
             .addLocationRequest(locationRequest)
 
         val client = LocationServices.getSettingsClient(this)
         val task = client.checkLocationSettings(builder.build())
 
         task.addOnSuccessListener {
-            //Log.d("DEBUG", "LOCATION UPDATES STARTED")
-            startLocationUpdates()
+            Log.d("DEBUG", "LOCATION UPDATES STARTED")
         }
+        startLocationUpdates()
     }
 
     private fun startLocationUpdates() {

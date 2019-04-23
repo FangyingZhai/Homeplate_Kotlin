@@ -10,16 +10,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="30sp"
-            android:layout_gravity="center"
+            android:layout_gravity="left"
             android:text="Username"
             android:layout_marginTop="15dp"
-    />
+            android:textColor="@color/colorPrimary"/>
 
     <TextView
             android:id="@+id/useraddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
+            android:textSize="18sp"
             android:gravity="right"
             android:text="Please set up restaurant address"
             android:layout_marginTop="15dp"
@@ -28,7 +28,7 @@
             android:id="@+id/userphonenumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
+            android:textSize="18sp"
             android:gravity="right"
             android:text="Please set up restaurant address"
             android:layout_marginTop="15dp"
@@ -44,10 +44,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="30dp"
             android:layout_marginBottom="15dp"
             android:text="totalprice"
-    />
+            android:textColor="@color/colorPrimary"/>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                   android:orientation="horizontal"

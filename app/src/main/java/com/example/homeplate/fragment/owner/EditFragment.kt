@@ -30,7 +30,7 @@ class EditFragment : Fragment() {
             try {
                 val name = restaurant_name.text.toString().replace("\\d".toRegex(), "").trim()
                 val value = telephone.text.toString()
-                val email = email.text.toString()
+                val email = email2.text.toString()
                 val address = address.text.toString()
 
                 if(name.isEmpty() || value.isEmpty() || email.isEmpty() || address.isEmpty()) {

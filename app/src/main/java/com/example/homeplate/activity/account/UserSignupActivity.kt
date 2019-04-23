@@ -21,7 +21,7 @@ class UserSignupActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         create_account.setOnClickListener {
-            val email = email.text.toString()
+            val email = email2.text.toString()
             val password = password.text.toString()
             val first_name = first_name.text.toString()
             val last_name = last_name.text.toString()
@@ -34,8 +34,9 @@ class UserSignupActivity : AppCompatActivity() {
                             // add account info to firestore
                             val db = FirebaseFirestore.getInstance()
                             var user = HashMap<String, Any>()
-                            user.put("first name", first_name)
-                            user.put("last name", last_name)
+                            user.put("firstName", first_name)
+                            user.put("lastName", last_name)
+                            user.put("orders", "0")
                             db.collection("users").document(email).set(user)
                             // Account creation success
                             Toast.makeText(this, "Account made.", Toast.LENGTH_SHORT).show()

@@ -29,7 +29,7 @@ class SignInFragment(): Fragment() {
         super.onStart()
 
         sign_in.setOnClickListener {
-            val email = email.text.toString()
+            val email = email2.text.toString()
             val password = password.text.toString()
 
             if (email != "" && password != "") {
