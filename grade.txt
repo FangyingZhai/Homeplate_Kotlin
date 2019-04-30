@@ -1,0 +1,12 @@
+Your app was mostly functional, which was great.
+
+The biggest criticisms we had were the lack of completeness of the back end, specifically adding restaurants. There were also some issues with the UI - when editing or updating values you
+had to refresh the UI to see the changes, which was unfortunate.
+
+I was surprised that you spent so much time on credit card processing. From my perspective I would've much rather seen you skip this part in favor of making sure that the
+rest of the app was working flawlessly. The features that you showed off were mostly part of the library from my understanding, and this presentation should have been a showcase
+of the work that your group did, not the library.
+
+Overall though, the majority of the functionality worked. Great job on the project.
+
+Total: 63 / 70
