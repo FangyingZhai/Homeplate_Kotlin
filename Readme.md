@@ -1,4 +1,3 @@
-Group Members: Shaohua Zhang, Denton Hui, Fangying Zhai
 user account-
 email: user@user.com
 pass: password
